@@ -1,12 +1,14 @@
 import express from "express";
 import fetch from "node-fetch";
-import cors from "cors"; // <-- import CORS
+import cors from "cors";  // <-- import cors
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Use CORS middleware
-app.use(cors());
+// Enable CORS
+app.use(cors({
+  origin: "*" // allow all origins, or replace '*' with your frontend URL in production
+}));
 
 app.get("/", (req, res) => {
   res.send("Backend is running!");
